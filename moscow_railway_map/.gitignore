@@ -1,0 +1,43 @@
+# .gitignore для Qt/C++ проекта
+
+# Файлы сборки
+build/
+cmake-build-*/
+*.pro.user
+Makefile
+
+# Временные файлы
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# Файлы IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# Скомпилированные объекты
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+
+# Исполняемые файлы
+*.exe
+*.out
+*.app
+
+# Логи
+*.log
+
+# Qt специфичные
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
