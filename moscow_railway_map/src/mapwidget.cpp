@@ -9,7 +9,7 @@
 #include <cmath>
 
 MapWidget::MapWidget(QWidget *parent)
-    : QGraphicsView(parent), m_currentMode("railways"), m_currentScale(1.0)
+    : QGraphicsView(parent), m_railwayData(nullptr), m_currentMode("railways"), m_currentScale(1.0)
 {
     m_scene = new QGraphicsScene(this);
     setScene(m_scene);
@@ -35,7 +35,7 @@ void MapWidget::setupScene()
 
 void MapWidget::loadRailwayData(const RailwayData &data)
 {
-    m_railwayData = data;
+    m_railwayData = &data;
     
     // Очищаем сцену
     m_scene->clear();
@@ -58,7 +58,7 @@ void MapWidget::drawRailwayLines(const QList<RailwayLine> &lines)
     for (const auto &line : lines) {
         QPen pen(Qt::darkGray, 3);
         if (line.name.contains("МЦК") || line.name.contains("Кольцо")) {
-            pen.setColor(Qt::brown);
+            pen.setColor(QColor(165, 42, 42)); // brown color
             pen.setWidth(4);
         }
         
