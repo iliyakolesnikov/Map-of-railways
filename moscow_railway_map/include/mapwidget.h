@@ -14,6 +14,7 @@ public:
     
     void loadRailwayData(const RailwayData &data);
     void setDisplayMode(const QString &mode);
+    void zoom(int delta);
     
 signals:
     void stationClicked(const QString &stationName, const QString &info);
@@ -35,7 +36,7 @@ private:
     QPointF geoToScreen(const QPointF &geoCoords);
     
     QGraphicsScene *m_scene;
-    RailwayData m_railwayData;
+    const RailwayData* m_railwayData;
     QString m_currentMode;
     double m_currentScale;
     QList<QGraphicsItem*> m_stationMarkers;
